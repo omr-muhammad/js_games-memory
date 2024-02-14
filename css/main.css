@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(300, 100%, 27%);
+  min-height: 100svh;
+  position: relative;
+  font-family: "Orbitron", Arial, Helvetica, sans-serif;
+}
+
+header h1 {
+  color: white;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 3rem;
+  letter-spacing: 5px;
+}
+
+main {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .header {
+  width: 40rem;
+  padding-inline: 1rem;
+}
+
+main .header .game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c7ccc;
+  padding: 0.625rem;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.game_box {
+  width: 40rem;
+  height: 40rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.625rem;
+  padding: 1rem;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+  transition: 1s;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+.card.flib {
+  rotate: y 180deg;
+  pointer-events: none;
+}
+
+.card:active {
+  transform: scale(0.97);
+}
+
+.card .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  background-color: #1c7ccc;
+}
+
+.card .img.front-face {
+  transform: rotateY(180deg);
+}
+
+.popup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup.show {
+  display: flex;
+}
+
+.popup .content {
+  background-color: white;
+  border-radius: 10px;
+  width: 35rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.popup .content h2 {
+  padding: 0.625rem;
+  letter-spacing: 1.5px;
+  color: hsl(240, 100%, 20%);
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.popup .content button {
+  padding: 0.625rem 1.25rem;
+  background-color: hsl(240, 100%, 20%);
+  color: white;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 70%;
+  font-family: inherit;
+  cursor: pointer;
+}
