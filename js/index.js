@@ -1,4 +1,4 @@
-"strict-mode";
+'strict-mode';
 // GAME LOGIC
 /*
 1) Create The UI ✔✔
@@ -25,21 +25,21 @@
 */
 
 const images = [
-  "./assets/images/angular.svg",
-  "./assets/images/aurelia.svg",
-  "./assets/images/backbone.svg",
-  "./assets/images/ember.svg",
-  "./assets/images/react.svg",
-  "./assets/images/vue.svg",
+  './assets/images/angular.svg',
+  './assets/images/aurelia.svg',
+  './assets/images/backbone.svg',
+  './assets/images/ember.svg',
+  './assets/images/react.svg',
+  './assets/images/vue.svg',
 ];
 
 // Elements
-const gameBox = document.querySelector("[data-name=box]");
-const timerEl = document.querySelector("[data-timer]");
-const triesEl = document.querySelector("[data-tries]");
-const popup = document.querySelector("[data-popup]");
-const endGameTitle = document.querySelector("[data-gameOver]");
-const playAgainBtn = document.querySelector("[data-playAgain]");
+const gameBox = document.querySelector('[data-name=box]');
+const timerEl = document.querySelector('[data-timer]');
+const triesEl = document.querySelector('[data-tries]');
+const popup = document.querySelector('[data-popup]');
+const endGameTitle = document.querySelector('[data-gameOver]');
+const playAgainBtn = document.querySelector('[data-playAgain]');
 
 // Global Variables
 let firstCard, secondCard, timerId;
@@ -62,7 +62,7 @@ function addImagesToUI() {
 
 function handleImgClick(element) {
   if (firstCard && secondCard) return;
-  element.classList.add("flib");
+  element.classList.add('flib');
   handleSelection(element);
 }
 
@@ -77,7 +77,7 @@ const gameTime = setInterval(() => {
   timerEl.textContent = calcMinAndSec(countTimeOnCardsNum);
 }, 1000);
 
-playAgainBtn.addEventListener("click", () => location.assign("/"));
+playAgainBtn.addEventListener('click', () => window.location.reload(true));
 
 // HELPER FUNCTIONS
 function handleSelection(clickedElement) {
@@ -99,7 +99,7 @@ function handleSelection(clickedElement) {
 
 function timer() {
   timerId = setTimeout(() => {
-    firstCard.classList.remove("flib");
+    firstCard.classList.remove('flib');
     firstCard = undefined;
   }, 3000);
 
@@ -112,16 +112,16 @@ function checkMatch() {
     if (actions.matches === 6) {
       handleEndGame();
     }
-    firstCard.style.visibility = "hidden";
-    secondCard.style.visibility = "hidden";
+    firstCard.style.visibility = 'hidden';
+    secondCard.style.visibility = 'hidden';
     [firstCard, secondCard] = [undefined, undefined];
     return;
   }
 
   // Not A Match
   setTimeout(() => {
-    firstCard.classList.remove("flib");
-    secondCard.classList.remove("flib");
+    firstCard.classList.remove('flib');
+    secondCard.classList.remove('flib');
     actions.tries--;
     if (actions.tries === 0) {
       handleEndGame();
@@ -137,7 +137,7 @@ function createRandom() {
 }
 
 function createElements(images) {
-  let cards = "";
+  let cards = '';
   let isFirsLoop = true;
 
   for (let i = 0; i < 6; i++) {
@@ -165,22 +165,22 @@ function calcMinAndSec(timeRemaining) {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
 
-  return `${minutes > 9 ? minutes : "0" + minutes}:${
-    seconds > 9 ? seconds : "0" + seconds
+  return `${minutes > 9 ? minutes : '0' + minutes}:${
+    seconds > 9 ? seconds : '0' + seconds
   }`;
 }
 
 function handleEndGame() {
-  popup.classList.add("show");
+  popup.classList.add('show');
   clearInterval(gameTime);
 
   if (!isRunning) {
-    endGameTitle.textContent = "Time Over 😓";
+    endGameTitle.textContent = 'Time Over 😓';
   } else if (actions.tries === 0) {
-    endGameTitle.textContent = "End Of Tries 😓";
+    endGameTitle.textContent = 'End Of Tries 😓';
   } else if (actions.matches === 6) {
-    endGameTitle.textContent = "You Won 🎉";
-    playAgainBtn.textContent = "Play Again";
+    endGameTitle.textContent = 'You Won 🎉';
+    playAgainBtn.textContent = 'Play Again';
   }
 
   return;
