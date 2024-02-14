@@ -14,7 +14,7 @@ In this memory game, players are presented with a grid of face-down cards. The o
 
 ## Live Demo
 
-[Play Memory Game]: https://omr-muhammad.github.io/js_games-memory/
+[Play Memory Game](https://omr-muhammad.github.io/js_games-memory/)
 
 ## Screenshots
 
